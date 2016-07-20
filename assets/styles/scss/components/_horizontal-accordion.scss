@@ -1,0 +1,20 @@
+@include component(horizontal-accordion) {
+  @extend .cf;
+  width: 100%;
+  height: 320px;
+  background: red;
+
+  @include part(slide) {
+    @include transition(width, ease);
+    height: 100%;
+    display: inline-block;
+    float: left;
+
+    &:hover {
+
+      @include option(actually-hovered) {
+        width: 60% !important;
+      }
+    }
+  }
+}
