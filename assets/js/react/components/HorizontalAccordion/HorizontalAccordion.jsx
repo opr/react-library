@@ -5,7 +5,9 @@ var HorizontalAccordion =  React.createClass({
     getInitialState: function() {
         return {
             slides: this.props.data.slides,
-            isBeingHovered: false
+            isBeingHovered: false,
+            slideCount: this.props.data.slides.length,
+            hoveredWidth: this.props.data.hoveredWidth
         }
     },
     getSlides: function() {
@@ -16,20 +18,13 @@ var HorizontalAccordion =  React.createClass({
         }
         for( var slide in this.state.slides ) {
             let currentSlide = this.state.slides[slide];
-            returnSlides.push(<HorizontalAccordionSlide key={ 'horizontalAccordionSlide-' + slide } imageUrl={currentSlide.imageURL} slideCount={this.state.slides.length} isBeingHovered={this.state.isBeingHovered} />);
+            returnSlides.push(<HorizontalAccordionSlide hoveredWidth={this.state.hoveredWidth} slideCount={this.state.slideCount} key={ 'horizontalAccordionSlide-' + slide } imageUrl={currentSlide.imageURL} />);
         }
         return returnSlides;
     },
-    startHover: function() {
-      this.setState({ isBeingHovered: true });
-    },
-    endHover: function() {
-      this.setState({ isBeingHovered: false });
-    },
     render: function () {
         var slides = this.getSlides();
-        return <div className="horizontal-accordion" onMouseOver={this.startHover}
-                    onMouseLeave={this.endHover}>{slides}</div>;
+        return <div className="horizontal-accordion">{slides}</div>;
     }
 });
 

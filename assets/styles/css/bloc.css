@@ -15,7 +15,7 @@
 | proper height.
 *************************************************/
 @import url(https://fonts.googleapis.com/css?family=Muli:400,300,200);
-.cf:after, .container:after, .horizontal-accordion:after {
+.cf:after, .container:after {
   visibility: hidden;
   display: block;
   font-size: 0;
@@ -157,8 +157,8 @@ body.\--nav-open {
   overflow: hidden; }
 
 .button {
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+  -webkit-transition: all 0.6s ease;
+  transition: all 0.6s ease;
   padding: 10px;
   border: 2px solid red;
   border-radius: 5px;
@@ -221,16 +221,17 @@ body.\--nav-open {
 
 .horizontal-accordion {
   width: 100%;
-  height: 320px;
-  background: red; }
+  height: 420px;
+  display: table;
+  table-layout: fixed; }
   .horizontal-accordion__slide {
-    -webkit-transition: width 0.3s ease;
-    transition: width 0.3s ease;
+    -webkit-transition: width 0.6s ease;
+    transition: width 0.6s ease;
     height: 100%;
-    display: inline-block;
-    float: left; }
-    .horizontal-accordion__slide:hover.\--actually-hovered {
-      width: 60% !important; }
+    display: table-cell;
+    position: relative;
+    background-size: cover;
+    background-position: center; }
 
 iframe {
   width: 100%;
